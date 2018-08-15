@@ -1,43 +1,107 @@
 body {
-    margin: 0%;
-    height: 100%;
+    background-image: url('http://hdgifs.com/wp-content/uploads/2017/01/5686905-gif-wallpaper.gif');
 }
 
 h1 {
+    font-size: 75px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
     text-align: center;
-    font-size: 72px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h4 {
+    color: antiquewhite;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h5 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 7px;
+    color: black;
 }
 
-.canvas {
-    width: 50px;
-    height: 50px;
-    background-color:whitesmoke;
-    border: 3px solid;
-    border-color: black;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-
+.canvas,
+.palette {
+    width: 600px;
+    height: 500px;
+    background-color: burlywood;
+    border: 10px ridge black;
+    margin: 0% auto;
 }
 
 .palette {
-    width: 50px;
-    height: 50px;
-    background-color:grey;
-    border: 3px solid;
-    border-color: black;
-    margin-left: auto;
-    margin-right: auto;
+    height: 90px;
+    margin: 0% auto;
+    font-size: 20px;
+    background-color: black;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: rgb(229, 229, 229);
+.pixel {
+    width: 20px;
+    padding-bottom: 20px;
+    border: 1px solid darkgray;
+    border-radius: 2px;
+    background-color: white;
+    float: left;
 }
 
-.row {
-    display: flex;
+.paint {
+    float: left;
+    width: 45px;
+    padding-bottom: 45px;
+    background-color: white;
+    border: 1.5px ridge orange;
+    border-radius: 10%;
+}
+
+.reset {
+    width: 60px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    float: right;
+    margin: 0px;
+}
+
+#black {
+    background-color: black;
+}
+
+#red {
+    background-color: red;
+}
+
+#yellow {
+    background-color:yellow;
+}
+
+#navajoWhite {
+    background-color: navajowhite;
+}
+
+#greenYellow {
+    background-color: greenyellow
+}
+
+#limeGreen {
+    background-color: limegreen;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#cyan {
+    background-color: cyan;
+}
+
+#mediumPurple {
+    background-color: mediumpurple;
+}
+
+#midnightBlue {
+    background-color: midnightblue;
+}
+
+#custom {}

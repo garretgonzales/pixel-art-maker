@@ -1,27 +1,85 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (ev) => {
 
-const header = document.createElement('h1');
-    document.body.appendChild(header);
+    //heading
+    const heads = document.createElement('h1')
+    document.body.appendChild(heads);
+    heads.innerText = 'PIXEL ART MAKER';
 
-    header.textContent = 'P I X E L    A R T';
+    //canvas
+    const canvas = document.createElement('div');
+    canvas.setAttribute('class', 'canvas');
+    document.body.appendChild(canvas);
+    
+    //event listner --canvas
+    canvas.addEventListener('mouseout', (ev) => {
+      if (ev.target.classList.contains('pixel') && mouseState === 'down') {
+          if (document.getElementsByClassName('current')[0].id !== 'custom') {
+              
+                const currentId = document.getElementsByClassName('current')[0].id
+                ev.target.setAttribute('id', currentId);
 
+          } else if (document.getElementsByClassName('current')[0].id === 'custom') {
+              ev.target.setAttribute('id', 'custom');
+              ev.target.style.backgroundColor = document.getElementsByTagName('input')[0].value;
+          }
+      }
+  });
 
-for (i = 0; i < 4; i++) {
-    const grid = document.createElement('div');
+    //palette
+    const palette = document.createElement('div');
+    palette.setAttribute('class', 'palette');
+    document.body.appendChild(palette);
+    palette.innerHTML = '<h4>PIXELATE ALL DAY ERRYDAY</h4>';
+    
+    //event listner -- palette
+    palette.addEventListener('click', (ev) => {
+      if (ev.target.classList.contains('paint')) {
+          current.removeAttribute('style');
+          let chosenId = ev.target.id;
+          current.setAttribute('id', chosenId)
+          return chosenId;
+        }
+  });
+    
+    //pixel/squares
+    let pixelNumber = 648;
+    while (pixelNumber > 0) {
+        const pixel = document.createElement('div');
+        pixel.setAttribute('class', 'pixel');
+        canvas.appendChild(pixel);
+        pixelNumber--;
+    }
 
-    document.body.appendChild(grid);
-    grid.setAttribute('class', 'canvas');
-    grid.addEventListener('click', (ev) => {
-        grid.style.backgroundColor = 'red';
+    //colors/paint
+    let colorChoices = ['black', 'red', 'yellow', 'navajoWhite', 'greenYellow', 'limeGreen', 'blue', 'cyan', 'mediumPurple', 'midnightBlue'];
+    for (let i = 0; i < colorChoices.length; i++) {
+        const paint = document.createElement('div');
+        paint.setAttribute('class', 'paint');
+        paint.setAttribute('id', colorChoices[i])
+        palette.appendChild(paint);
+    }
+    //reset trigger
+    const reset = document.createElement('div');
+    reset.setAttribute('class', 'reset')
+    palette.appendChild(reset);
+    reset.innerHTML = '<h5>reset</h5>'
+    reset.addEventListener('click', (ev) => {
+        for (i = 0; i < document.getElementsByClassName('pixel').length; i++) {
+            document.getElementsByClassName('pixel')[i].removeAttribute('id');
+            document.getElementsByClassName('pixel')[i].removeAttribute('style');
+        }
     });
-}
 
-for (j = 0; j < 11; j++) {
-    const colors = document.createElement('div');
-
-    document.body.appendChild(colors);
-    colors.setAttribute('class', 'palette');
-}
-
-
+    //event listener --- mouse drag    
+    let mouseState = '';
+    canvas.addEventListener('mousedown', (ev) => {
+        mouseState = 'down';
+        return mouseState;
+    })
+    canvas.addEventListener('mouseup', (ev) => {
+        mouseState = 'up';
+        return mouseState;
     });
+});
+
+console.log('booyah');
